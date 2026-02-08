@@ -1,0 +1,282 @@
+body{
+    font-family:sans-serif;
+    background:#ffeef2;
+    display:flex;
+    justify-content:center;
+    padding-top:40px;
+}
+
+/* Hidden ALWAYS wins */
+.hidden{
+    display:none !important;
+}
+
+/* Verification */
+
+.container{
+    background:white;
+    padding:20px;
+    border-radius:16px;
+    width:320px;
+    text-align:center;
+    box-shadow:0 4px 20px rgba(0,0,0,0.15);
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+    margin:15px 0;
+}
+
+.grid img{
+    width:100%;
+    height:100px;
+    object-fit:cover;
+    border-radius:10px;
+    cursor:pointer;
+    border:3px solid transparent;
+}
+
+.tick-mark{
+    position:absolute;
+    top:5px;
+    right:5px;
+    width:24px;
+    height:24px;
+    background:#ff4d6d;
+    color:white;
+    border-radius:50%;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    font-size:16px;
+    font-weight:bold;
+}
+
+.selected{
+    border:3px solid #ff4d6d;
+}
+
+button{
+    background:#ff4d6d;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+/* Chat */
+
+.chat-container{
+    width:330px;
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 4px 20px rgba(0,0,0,0.2);
+}
+
+.chat-header{
+    background:#ff4d6d;
+    color:white;
+    padding:12px;
+    text-align:center;
+    font-weight:bold;
+}
+
+.chat-box{
+    height:350px;
+    padding:10px;
+    overflow-y:auto;
+    background:#f5f5f5;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.msg-row{
+    display:flex;
+    align-items:flex-end;
+    gap:8px;
+}
+
+.sender-row{
+    align-self:flex-start;
+}
+
+.receiver-row{
+    align-self:flex-end;
+}
+
+.avatar{
+    width:32px;
+    height:32px;
+    border-radius:50%;
+    background:#ff4d6d;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+    font-size:14px;
+    flex-shrink:0;
+}
+
+.input-area{
+    display:flex;
+    gap:8px;
+    padding:10px;
+    background:white;
+    border-top:1px solid #e5e5e5;
+}
+
+.input-area input{
+    flex:1;
+    padding:10px;
+    border:1px solid #ddd;
+    border-radius:20px;
+    outline:none;
+}
+
+.input-area button{
+    padding:10px 20px;
+    border-radius:20px;
+}
+
+.sender{
+    background:#e5e5ea;
+    padding:8px 12px;
+    border-radius:14px;
+    max-width:75%;
+}
+
+.receiver{
+    background:#ff4d6d;
+    color:white;
+    padding:8px 12px;
+    border-radius:14px;
+    max-width:75%;
+}
+
+.option-wrapper{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+.option-btn{
+    background:white;
+    border:2px solid #ff4d6d;
+    color:#ff4d6d;
+    padding:6px 14px;
+    border-radius:20px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.option-btn:hover{
+    background:#ff4d6d;
+    color:white;
+}
+
+.link-btn{
+    color:#ff4d6d;
+    text-decoration:underline;
+    cursor:pointer;
+}
+
+/* Modal */
+
+.modal{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.6);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.modal-content{
+    background:white;
+    padding:25px;
+    border-radius:16px;
+    width:300px;
+    position:relative;
+}
+
+.agreement-doc{
+    width:500px;
+    max-height:80vh;
+    overflow-y:auto;
+    text-align:left;
+}
+
+.agreement-doc h2{
+    text-align:center;
+    color:#ff4d6d;
+    margin-bottom:5px;
+}
+
+.agreement-doc .subtitle{
+    text-align:center;
+    font-style:italic;
+    color:#666;
+    margin-bottom:20px;
+}
+
+.agreement-doc ul{
+    margin:10px 0;
+    padding-left:20px;
+}
+
+.agreement-doc li{
+    margin:8px 0;
+    line-height:1.5;
+}
+
+.agreement-doc hr{
+    border:none;
+    border-top:1px solid #ddd;
+    margin:20px 0;
+}
+
+.agreement-doc .validity{
+    text-align:center;
+    font-size:18px;
+    color:#ff4d6d;
+    margin-top:10px;
+}
+
+.center{
+    text-align:center;
+}
+
+.rewards{
+    text-align:left;
+    margin-top:20px;
+    padding:15px;
+    background:#fff5f7;
+    border-radius:10px;
+}
+
+.rewards ul{
+    margin:10px 0;
+    padding-left:20px;
+}
+
+.rewards li{
+    margin:8px 0;
+    line-height:1.5;
+}
+
+.close{
+    position:absolute;
+    right:12px;
+    top:10px;
+    cursor:pointer;
+    font-size:18px;
+}

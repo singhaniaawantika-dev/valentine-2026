@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valentine Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- Verification -->
+<div class="container">
+  <h2>Relationship Security Verification</h2>
+  <p>Select most cutest of cute images from below</p>
+
+  <div id="imageGrid" class="grid"></div>
+  <button id="submitBtn">Submit</button>
+  <p id="resultMsg"></p>
+</div>
+
+<!-- Chat Screen -->
+<div id="chatScreen" class="hidden">
+  <div class="chat-container">
+    <div class="chat-header">CEO of your heart</div>
+
+    <div id="chatBox" class="chat-box"></div>
+
+    <div class="input-area">
+      <input id="chatInput" type="text" placeholder="Type reply..." disabled>
+      <button id="sendBtn" disabled>Send</button>
+    </div>
+  </div>
+</div>
+
+<!-- Agreement Modal -->
+<div id="agreementModal" class="modal hidden">
+  <div class="modal-content agreement-doc">
+    <span id="closeAgreement" class="close">✖</span>
+    <h2>❤️ Valentine Commitment Agreement</h2>
+    <p class="subtitle">Relationship Renewal – 2026</p>
+    
+    <p>This document confirms that <strong>Jagannath Panda</strong> has successfully completed all relationship verification procedures and is hereby invited to continue being Awantika's Valentine.</p>
+    
+    <p><strong>By accepting this agreement, you promise to:</strong></p>
+    <ul>
+      <li>Continue laughing with me at the most random and silly things</li>
+      <li>Stay patient during my overthinking and emotional moments</li>
+      <li>Celebrate little victories and big dreams together</li>
+      <li>Remind me that I am loved, supported, and safe with you</li>
+      <li>Let me be your comfort place, just like you are mine</li>
+    </ul>
+    
+    <p><strong>🌍 Special Clause – Long Distance Edition</strong></p>
+    <p>Physical distance shall not reduce emotional closeness, love intensity, or cuddle expectations during reunions.</p>
+    
+    <hr>
+    
+    <p><strong>✨ Relationship Terms</strong></p>
+    <ul>
+      <li>Fights will end with understanding, food and hugs</li>
+      <li>We will grow individually and together</li>
+      <li>We will keep choosing each other — intentionally, every day</li>
+    </ul>
+    
+    <hr>
+    
+    <p><strong>⏳ Agreement Validity</strong></p>
+    <p>This agreement is valid for:</p>
+    <p class="validity"><strong>Lifetime</strong><br>(Auto-renewal permanently enabled)</p>
+  </div>
+</div>
+
+<!-- Celebration Modal -->
+<div id="celebrationModal" class="modal hidden">
+  <div class="modal-content center">
+    <span id="closeCelebration" class="close">✖</span>
+    <h2>You made a wise agreement 💕</h2>
+    <img src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif" width="220">
+    <p>You are successfully renewed as Awantika's Valentine for 2026</p>
+    
+    <div class="rewards">
+      <p><strong>💞 Congratulations! Find your rewards below:</strong></p>
+      <ul>
+        <li>A partner who chooses you every single day</li>
+        <li>A heart that feels like home, no matter the distance</li>
+        <li>Unlimited love, support, and companionship</li>
+        <li>Random affectionate messages at unexpected times</li>
+        <li>Lifetime access to Awantika's hugs and kisses and cuddles and sex</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
