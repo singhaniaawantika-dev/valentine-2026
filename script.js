@@ -1,6 +1,24 @@
 const celebrationModal = document.getElementById("celebrationModal");
 celebrationModal.classList.add("hidden");
 
+// Create floating hearts
+function createFloatingHearts(){
+    const heartsBg=document.querySelector(".hearts-bg");
+    const hearts=['❤️','💕','💖','💗','💓','💞'];
+    
+    for(let i=0;i<15;i++){
+        const heart=document.createElement("div");
+        heart.className="floating-heart";
+        heart.innerText=hearts[Math.floor(Math.random()*hearts.length)];
+        heart.style.left=Math.random()*100+"%";
+        heart.style.animationDelay=Math.random()*15+"s";
+        heart.style.fontSize=(15+Math.random()*15)+"px";
+        heartsBg.appendChild(heart);
+    }
+}
+
+createFloatingHearts();
+
 /* CAPTCHA */
 
 const images=[

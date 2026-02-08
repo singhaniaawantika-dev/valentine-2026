@@ -1,9 +1,73 @@
 body{
     font-family:sans-serif;
-    background:#ffeef2;
-    display:flex;
-    justify-content:center;
-    padding-top:40px;
+    background:linear-gradient(135deg, #ffeef2 0%, #ffe0e9 50%, #ffd4e5 100%);
+    min-height:100vh;
+    margin:0;
+    padding:0;
+    position:relative;
+    overflow-x:hidden;
+}
+
+@media (min-width: 768px){
+    body{
+        display:flex;
+        justify-content:center;
+        padding-top:40px;
+    }
+}
+
+/* Floating Hearts Background */
+.hearts-bg{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    z-index:0;
+}
+
+.hearts-bg::before,
+.hearts-bg::after{
+    content:'❤️';
+    position:absolute;
+    font-size:20px;
+    animation:float 15s infinite;
+    opacity:0.3;
+}
+
+.hearts-bg::before{
+    left:10%;
+    animation-delay:0s;
+}
+
+.hearts-bg::after{
+    left:80%;
+    animation-delay:7s;
+}
+
+@keyframes float{
+    0%{
+        transform:translateY(100vh) rotate(0deg);
+        opacity:0;
+    }
+    10%{
+        opacity:0.3;
+    }
+    90%{
+        opacity:0.3;
+    }
+    100%{
+        transform:translateY(-100px) rotate(360deg);
+        opacity:0;
+    }
+}
+
+.floating-heart{
+    position:absolute;
+    animation:float 15s infinite linear;
+    pointer-events:none;
+    opacity:0.3;
 }
 
 /* Hidden ALWAYS wins */
@@ -15,18 +79,46 @@ body{
 
 .container{
     background:white;
-    padding:20px;
-    border-radius:16px;
-    width:320px;
+    padding:30px 20px;
+    width:100%;
+    min-height:100vh;
     text-align:center;
-    box-shadow:0 4px 20px rgba(0,0,0,0.15);
+    box-shadow:none;
+    position:relative;
+    z-index:1;
+    border:none;
+}
+
+@media (min-width: 768px){
+    .container{
+        padding:30px;
+        border-radius:20px;
+        width:320px;
+        min-height:auto;
+        box-shadow:0 8px 32px rgba(255,77,109,0.3);
+        border:2px solid rgba(255,77,109,0.1);
+    }
+}
+
+.heart-icon{
+    font-size:50px;
+    animation:heartbeat 1.5s infinite;
+    margin-bottom:10px;
+}
+
+@keyframes heartbeat{
+    0%, 100%{ transform:scale(1); }
+    10%, 30%{ transform:scale(1.1); }
+    20%{ transform:scale(0.95); }
 }
 
 .grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:10px;
-    margin:15px 0;
+    margin:15px auto;
+    max-width:350px;
+    padding:0 15px;
 }
 
 .grid img{
@@ -36,6 +128,12 @@ body{
     border-radius:10px;
     cursor:pointer;
     border:3px solid transparent;
+    transition:all 0.3s ease;
+}
+
+.grid img:hover{
+    transform:scale(1.05);
+    box-shadow:0 4px 12px rgba(255,77,109,0.4);
 }
 
 .tick-mark{
@@ -59,40 +157,84 @@ body{
 }
 
 button{
-    background:#ff4d6d;
+    background:linear-gradient(135deg, #ff4d6d 0%, #ff6b88 100%);
     color:white;
     border:none;
-    padding:10px 20px;
-    border-radius:10px;
+    padding:12px 24px;
+    border-radius:25px;
     cursor:pointer;
+    font-weight:600;
+    box-shadow:0 4px 15px rgba(255,77,109,0.4);
+    transition:all 0.3s ease;
+}
+
+button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 6px 20px rgba(255,77,109,0.6);
 }
 
 /* Chat */
 
 .chat-container{
-    width:330px;
+    width:100%;
+    height:100vh;
     background:white;
-    border-radius:20px;
     overflow:hidden;
-    box-shadow:0 4px 20px rgba(0,0,0,0.2);
+    box-shadow:none;
+    position:relative;
+    z-index:1;
+    border:none;
+    display:flex;
+    flex-direction:column;
+}
+
+@media (min-width: 768px){
+    .chat-container{
+        width:330px;
+        height:auto;
+        border-radius:20px;
+        box-shadow:0 8px 32px rgba(255,77,109,0.3);
+        border:2px solid rgba(255,77,109,0.1);
+    }
 }
 
 .chat-header{
-    background:#ff4d6d;
+    background:linear-gradient(135deg, #ff4d6d 0%, #ff6b88 100%);
     color:white;
-    padding:12px;
+    padding:15px;
     text-align:center;
     font-weight:bold;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+}
+
+.pulse-heart{
+    animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+    0%, 100%{ transform:scale(1); opacity:1; }
+    50%{ transform:scale(1.2); opacity:0.8; }
 }
 
 .chat-box{
-    height:350px;
-    padding:10px;
+    flex:1;
+    padding:15px;
     overflow-y:auto;
-    background:#f5f5f5;
+    background:linear-gradient(to bottom, #fafafa 0%, #f5f5f5 100%);
     display:flex;
     flex-direction:column;
     gap:8px;
+}
+
+@media (min-width: 768px){
+    .chat-box{
+        height:350px;
+        flex:none;
+        padding:10px;
+    }
 }
 
 .msg-row{
@@ -113,7 +255,7 @@ button{
     width:32px;
     height:32px;
     border-radius:50%;
-    background:#ff4d6d;
+    background:linear-gradient(135deg, #ff4d6d 0%, #ff6b88 100%);
     color:white;
     display:flex;
     align-items:center;
@@ -121,14 +263,21 @@ button{
     font-weight:bold;
     font-size:14px;
     flex-shrink:0;
+    box-shadow:0 2px 8px rgba(255,77,109,0.3);
 }
 
 .input-area{
     display:flex;
     gap:8px;
-    padding:10px;
+    padding:15px;
     background:white;
     border-top:1px solid #e5e5e5;
+}
+
+@media (min-width: 768px){
+    .input-area{
+        padding:10px;
+    }
 }
 
 .input-area input{
@@ -152,11 +301,12 @@ button{
 }
 
 .receiver{
-    background:#ff4d6d;
+    background:linear-gradient(135deg, #ff4d6d 0%, #ff6b88 100%);
     color:white;
     padding:8px 12px;
     border-radius:14px;
     max-width:75%;
+    box-shadow:0 2px 8px rgba(255,77,109,0.3);
 }
 
 .option-wrapper{
@@ -169,15 +319,19 @@ button{
     background:white;
     border:2px solid #ff4d6d;
     color:#ff4d6d;
-    padding:6px 14px;
+    padding:8px 16px;
     border-radius:20px;
     cursor:pointer;
     font-weight:600;
+    transition:all 0.3s ease;
+    box-shadow:0 2px 8px rgba(255,77,109,0.2);
 }
 
 .option-btn:hover{
-    background:#ff4d6d;
+    background:linear-gradient(135deg, #ff4d6d 0%, #ff6b88 100%);
     color:white;
+    transform:translateY(-2px);
+    box-shadow:0 4px 12px rgba(255,77,109,0.4);
 }
 
 .link-btn{
@@ -198,21 +352,45 @@ button{
     display:flex;
     justify-content:center;
     align-items:center;
+    z-index:1000;
 }
 
 .modal-content{
     background:white;
     padding:25px;
-    border-radius:16px;
-    width:300px;
+    border-radius:20px;
+    width:90%;
+    max-width:350px;
     position:relative;
+    box-shadow:0 8px 32px rgba(255,77,109,0.3);
+    border:2px solid rgba(255,77,109,0.1);
+    animation:modalPop 0.3s ease;
+}
+
+@media (min-width: 768px){
+    .modal-content{
+        width:300px;
+    }
+}
+
+@keyframes modalPop{
+    0%{ transform:scale(0.8); opacity:0; }
+    100%{ transform:scale(1); opacity:1; }
 }
 
 .agreement-doc{
-    width:500px;
-    max-height:80vh;
+    width:90%;
+    max-width:500px;
+    max-height:85vh;
     overflow-y:auto;
     text-align:left;
+}
+
+@media (min-width: 768px){
+    .agreement-doc{
+        width:500px;
+        max-height:80vh;
+    }
 }
 
 .agreement-doc h2{
